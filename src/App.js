@@ -29,7 +29,7 @@ const App = () => {
     <>
       <div className="container">
         <form>
-          <input type="text" value={result} />
+          <input type="text" onChange={(e) => e.target.value} value={result} />
         </form>
         <div className="keypad">
           <button className="highligth" onClick={clear} id="clear">
