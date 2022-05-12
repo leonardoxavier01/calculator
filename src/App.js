@@ -21,7 +21,7 @@ const App = () => {
     try {
       setResult(eval(result).toString());
     } catch (err) {
-      setResult('Error');
+      setResult('Erro de operação');
     }
   };
 
