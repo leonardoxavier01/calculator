@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import keypad from './keypadData.js';
+import keypad from './services/keypadData.js';
 
 const App = () => {
   const [result, setResult] = useState('');
@@ -25,6 +25,16 @@ const App = () => {
     }
   };
 
+  const checkFunction = (condition) => {
+    return condition == 'handleClick'
+      ? handleClick
+      : condition == 'clear'
+      ? clear
+      : condition == 'backspace'
+      ? backspace
+      : calculate;
+  };
+
   return (
     <>
       <div className="container">
@@ -32,20 +42,17 @@ const App = () => {
           <input type="text" onChange={(e) => e.target.value} value={result} />
         </form>
         <div className="keypad">
-          <button className="highligth" id="clear" onClick={clear}>
-            Clear
-          </button>
-          <button className="highligth" onClick={backspace}>
-            C
-          </button>
-          {keypad.map((key, index) => (
-            <button className={key.class} name={key.value} onClick={handleClick} key={index}>
+          {keypad.map((key) => (
+            <button
+              className={key.lightStyle ? 'highligth' : ''}
+              name={key.value}
+              onClick={checkFunction(key.function)}
+              id={key.greaterWidth}
+              key={key.id}
+            >
               {key.value}
             </button>
           ))}
-          <button className="highligth" onClick={calculate} id="result">
-            =
-          </button>
         </div>
       </div>
     </>
