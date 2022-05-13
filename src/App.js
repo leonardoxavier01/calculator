@@ -44,11 +44,11 @@ const App = () => {
         <div className="keypad">
           {keypad.map((key) => (
             <button
+              key={key.id}
               className={key.lightStyle ? 'highligth' : ''}
               name={key.value}
               onClick={checkFunction(key.function)}
               id={key.greaterWidth}
-              key={key.id}
             >
               {key.value}
             </button>
