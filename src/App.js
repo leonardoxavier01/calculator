@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import keypad from './services/keypadData.js';
+import keypad from './keypadData.js';
 
 const App = () => {
   const [result, setResult] = useState('');
