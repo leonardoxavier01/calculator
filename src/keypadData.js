@@ -9,6 +9,7 @@ const keypad = [
   {
     id: 2,
     value: 'C',
+    lightStyle: true,
     function: 'backspace',
   },
   {
